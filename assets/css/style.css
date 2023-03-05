@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+i {
+  font-size: 1.5em;
+}
+
 body {
   background-color: #26292e;
   color: #a3b1ee;
@@ -45,7 +49,8 @@ body {
 
 .content-profile .profile-deskripsi h4,
 .content-profile .profile-deskripsi h5 {
-  font-family: cursive;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
   color: #436bff;
 }
 
@@ -116,6 +121,11 @@ body {
 
   .content-profile {
     width: 100%;
+  }
+
+  .content-profile .profile-deskripsi h4,
+  .content-profile .profile-deskripsi h5 {
+    letter-spacing: 1px;
   }
 
   .content-profile .profile-deskripsi button {
