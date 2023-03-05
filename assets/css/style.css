@@ -1,3 +1,20 @@
+@font-face {
+  font-family: accelerator;
+  src: url("../fonts/accelerator.otf");
+}
+@font-face {
+  font-family: acosta;
+  src: url("../fonts/Acosta.otf");
+}
+@font-face {
+  font-family: droid;
+  src: url("../fonts/droid.otf");
+}
+@font-face {
+  font-family: projectspace;
+  src: url("../fonts/ProjectSpace.otf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -48,10 +65,34 @@ body {
 }
 
 .content-profile .profile-deskripsi h4,
-.content-profile .profile-deskripsi h5 {
+.content-profile .profile-deskripsi .typing-demo {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: #436bff;
+}
+
+.content-profile .profile-deskripsi .typing-demo {
+  /* width: 300px; */
+  margin: auto;
+  width: 27ch;
+  font-size: 1.1em;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 .content-profile .profile-deskripsi button {
@@ -78,7 +119,7 @@ body {
 
 .content-deskripsi .deskripsi-title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .content-deskripsi .deskripsi-title h2 {
@@ -89,16 +130,23 @@ body {
 .content-deskripsi .deskripsi-links ul li {
   width: 70%;
   margin: auto;
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 15px;
+  padding: 13px;
   background-color: #2f323b;
   text-align: center;
   border-radius: 0 10px 0 10px;
+  border: 2px solid #436bff;
 }
 
-.content-deskripsi .deskripsi-links ul li a {
+.content-deskripsi .deskripsi-links ul a {
   color: #607adb;
   font-weight: bold;
+}
+
+.content-deskripsi .deskripsi-links ul a:hover li {
+  background-color: #607adb;
+  color: #c1cfff;
+  border: 2px solid #c1cfff;
 }
 
 #footer {

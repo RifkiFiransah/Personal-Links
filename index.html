@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Link Tree Personal ~ Rifki Firansah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -23,37 +25,70 @@
     <main class="content" id="content">
       <div class="content-profile">
         <div class="profile-picture">
-          <img src="./assets/img/user.png" alt="pict-profile">
+          <img src="./assets/img/gue.jpg" alt="pict-profile">
         </div>
         <br>
         <div class="profile-deskripsi">
-          <h4>Hai , I'm Rifki Firansah</h4>
-          <h5>Students | Web Developer</h5>
+          <h4>Hai , I'm Rifki Firansah </h4>
+          <div class="wrapper">
+            <div class="typing-demo">
+              Freelancer | Web Developer.
+            </div>
+          </div>
           <button onclick="popNotif()">Don't Click This</button>
         </div>
       </div>
 
       <div class="content-deskripsi">
         <div class="deskripsi-title">
-          <h2>Terhubung Dengan Saya</h2>
+          <h2>Connect with me</h2>
         </div>
         <div class="deskripsi-links">
           <ul>
-            <li>
-              <a href="https://instagram.com/505_mrifkif.nt" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/rifki-firansah-670109249/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linked In</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/RifkiFiransah" target="_blank"><i class="fa-brands fa-square-twitter"></i> Twitter</a>
-            </li>
-            <li>
-              <a href="https://github.com/RifkiFiransah/" target="_blank"><i class="fa-brands fa-square-github"></i> Github</a>
-            </li>
-            <li>
-              <a href="#" target="_blank"><i class="fa-solid fa-house"></i> My Personal Page</a>
-            </li>
+            <a href="https://instagram.com/505_mrifkif.nt" target="_blank">
+              <li data-aos="fade-right"
+              data-aos-anchor="#example-anchor"
+              data-aos-offset="300"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-sine">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </li>
+            </a>
+            <a href="https://www.linkedin.com/in/rifki-firansah-670109249/" target="_blank">
+              <li data-aos="fade-left"
+                  data-aos-anchor="#example-anchor"
+                  data-aos-offset="500"
+                  data-aos-duration="2000">
+                <i class="fa-brands fa-linkedin"></i> Linked In
+              </li>
+            </a>
+            <a href="https://twitter.com/RifkiFiransah" target="_blank">
+              <li data-aos="fade-right"
+              data-aos-anchor="#example-anchor"
+              data-aos-offset="300"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-sine">
+                <i class="fa-brands fa-square-twitter"></i> Twitter
+              </li>
+            </a>
+            <a href="https://github.com/RifkiFiransah/" target="_blank">
+              <li data-aos="fade-left"
+                  data-aos-anchor="#example-anchor"
+                  data-aos-offset="500"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-duration="2000">
+                <i class="fa-brands fa-square-github"></i> Github
+              </li>
+            </a>
+            <a href="https://firansahrifki.netlify.app/" target="_blank">
+              <li data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-duration="2000"
+              data-aos-anchor="#example-anchor"
+              data-aos-easing="ease-in-sine">
+                <i class="fa-solid fa-house"></i> My Personal Page
+              </li>
+            </a>
           </ul>
         </div>
       </div>
@@ -63,7 +98,7 @@
     <!-- First Footer Section -->
     <footer id="footer" class="footer">
       <div class="footer-title">
-        <p>&nbsp;Copyright 2023 Build with <i class="fa-solid fa-heart"></i> By Me > Rifki Firansah <</p>
+        <p>&copy; Copyright 2023 Build with <i class="fa-solid fa-heart"></i> By Me > Rifki Firansah <</p>
       </div>
     </footer>
     <!-- Last Footer Section -->
@@ -71,5 +106,9 @@
   </div>
 
   <script src="./assets/js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init()
+  </script>
 </body>
 </html>
