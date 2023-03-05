@@ -24,3 +24,11 @@ window.addEventListener("blur", () => {
 window.addEventListener("focus", () => {
   document.title = currentTitle
 })
+
+
+let clock;
+setInterval(() => {
+  clock = new Date()
+  document.querySelector('.clock').innerHTML = `${clock?.getHours()}:${clock?.getMinutes()}:${clock?.getSeconds < 10 ?
+  `0${clock?.getSeconds()}` : clock?.getSeconds()}`;
+}, 1000)
