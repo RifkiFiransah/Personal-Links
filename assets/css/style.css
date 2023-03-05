@@ -142,12 +142,20 @@ body {
     width: 100%;
   }
 
+  #footer {
+    padding: 15px;
+  }
+
   .footer-title {
     width: 88%;
     margin: auto;
   }
 
-  .footer-title h4 {
+  .footer-title i {
+    font-size: 1em;
+  }
+
+  .footer-title p {
     font-size: 0.8em;
   }
 }
