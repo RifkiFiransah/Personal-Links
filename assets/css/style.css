@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: monospace;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #26292e;
+  color: #a3b1ee;
+  width: 100%;
+}
+
+#navbar {
+  width: 100%;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+}
+
+.navbar-hero h1 {
+  font-size: 1.8em;
+}
+
+#content {
+  display: flex;
+  padding: 40px;
+  height: 80vh;
+}
+
+.content-profile {
+  width: 50%;
+  text-align: center;
+}
+
+.content-profile .profile-picture img {
+  width: 40%;
+  border-radius: 50%;
+  border: 5px solid #607adb;
+}
+
+.content-profile .profile-deskripsi h4,
+.content-profile .profile-deskripsi h5 {
+  font-family: cursive;
+  color: #436bff;
+}
+
+.content-profile .profile-deskripsi button {
+  margin-top: 30px;
+  width: 40%;
+  padding: 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: #a3b1ee;
+  color: #2f323b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.content-profile .profile-deskripsi button:hover {
+  background-color: #a3b1ee80;
+  color: #c1cfff;
+  transition: all 0.8s;
+}
+
+.content-deskripsi {
+  width: 50%;
+}
+
+.content-deskripsi .deskripsi-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-deskripsi .deskripsi-title h2 {
+  font-size: 1.5em;
+  color: #436bff;
+}
+
+.content-deskripsi .deskripsi-links ul li {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #2f323b;
+  text-align: center;
+  border-radius: 0 10px 0 10px;
+}
+
+.content-deskripsi .deskripsi-links ul li a {
+  color: #607adb;
+  font-weight: bold;
+}
+
+#footer {
+  padding: 23px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  * {
+    overflow-x: hidden;
+    overflow-y: unset;
+  }
+  .navbar-hero h1 {
+    font-size: 1.3em;
+  }
+
+  #content {
+    display: inherit;
+  }
+
+  .content-profile {
+    width: 100%;
+  }
+
+  .content-profile .profile-deskripsi button {
+    width: 55%;
+    margin-bottom: 60px;
+    font-size: 0.8em;
+  }
+
+  .content-deskripsi {
+    width: 100%;
+  }
+
+  .content-deskripsi .deskripsi-links ul li {
+    width: 100%;
+  }
+
+  .footer-title {
+    width: 88%;
+    margin: auto;
+  }
+
+  .footer-title h4 {
+    font-size: 0.8em;
+  }
+}
