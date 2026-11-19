@@ -47,7 +47,9 @@
     root.dataset.theme = theme;
     if (persist) store.set("theme", theme);
     const light = effectiveTheme() === "light";
-    themeIcon.className = light ? "fa-solid fa-sun" : "fa-regular fa-moon";
+    themeIcon.querySelector("use").setAttribute("href", light ? "#i-sun" : "#i-moon");
+    themeIcon.classList.toggle("icon--line", light);
+    themeIcon.classList.toggle("icon--solid", !light);
     themeToggle.setAttribute(
       "aria-label",
       light ? "Switch to dark mode" : "Switch to light mode",
@@ -125,7 +127,7 @@
       const time = timeFormat.format(now);
       if (time !== previous) {
         timeEl.textContent = time;
-        if (!reduced && timeEl.animate) {
+        if (!reduced && root.dataset.motion === "on" && timeEl.animate) {
           timeEl.animate(
             [
               { opacity: 0.35, transform: "translateY(-3px)" },
@@ -147,14 +149,13 @@
     if (reduced) return;
     const roleEl = document.getElementById("role-text");
     const roles = [
-      "Full Stack Developer",
-      "Frontend & Backend Focused",
-      "Building for the systems of tomorrow",
-      "Creating seamless experiences",
-      "Crafting digital solutions",
+      "Freelance Web Developer",
+      "Frontend Focused",
+      "Clear, Considered Interfaces",
     ];
     let index = 0;
     setInterval(() => {
+      if (root.dataset.motion === "off" || document.hidden) return;
       roleEl.style.opacity = "0";
       setTimeout(() => {
         index = (index + 1) % roles.length;
@@ -164,12 +165,14 @@
     }, 3400);
   };
 
-  const initParticles = () => {
-    if (reduced || root.dataset.motion === "off" || root.dataset.bg === "off")
-      return;
+  const syncParticles = () => {
     const container = document.getElementById("particles");
-    container.replaceChildren();
-    for (let i = 0; i < 18; i += 1) {
+    if (reduced || root.dataset.motion === "off" || root.dataset.bg === "off") {
+      container.replaceChildren();
+      return;
+    }
+    if (container.childElementCount) return;
+    for (let i = 0; i < 12; i += 1) {
       const particle = document.createElement("span");
       particle.className = "particle";
       particle.style.left = `${Math.random() * 100}%`;
@@ -179,6 +182,8 @@
       container.append(particle);
     }
   };
+
+  let syncPointerRender = () => {};
 
   const initPointer = () => {
     if (!finePointer || reduced) return;
@@ -196,15 +201,29 @@
     let ringX = mouseX;
     let ringY = mouseY;
 
+    let rafId = null;
+
     const render = () => {
       ringX += (mouseX - ringX) * 0.16;
       ringY += (mouseY - ringY) * 0.16;
       dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
       ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
       spotlight.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-      requestAnimationFrame(render);
+      rafId = requestAnimationFrame(render);
     };
-    requestAnimationFrame(render);
+
+    syncPointerRender = () => {
+      const shouldRun = !document.hidden && root.dataset.motion === "on";
+      if (shouldRun && rafId === null) {
+        rafId = requestAnimationFrame(render);
+      } else if (!shouldRun && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    document.addEventListener("visibilitychange", syncPointerRender);
+    syncPointerRender();
 
     document.addEventListener("mousemove", (event) => {
       mouseX = event.clientX;
@@ -293,7 +312,8 @@
         root.dataset.motion = button.dataset.motion;
         store.set("motion", button.dataset.motion);
         mark(".motion-option", "motion", button.dataset.motion);
-        if (button.dataset.motion === "on") initParticles();
+        syncParticles();
+        syncPointerRender();
         ping();
       });
     });
@@ -303,7 +323,7 @@
         root.dataset.bg = button.dataset.bg;
         store.set("bg", button.dataset.bg);
         mark(".bg-option", "bg", button.dataset.bg);
-        if (button.dataset.bg === "on") initParticles();
+        if (button.dataset.bg === "on") syncParticles();
         ping();
       });
     });
@@ -330,7 +350,7 @@
 
     initClock();
     initRole();
-    initParticles();
+    syncParticles();
     initPointer();
     initLinks();
   });

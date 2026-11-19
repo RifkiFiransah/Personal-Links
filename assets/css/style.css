@@ -76,6 +76,34 @@ button {
   cursor: pointer;
 }
 
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  pointer-events: none;
+}
+
+.icon--line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--solid {
+  fill: currentColor;
+  stroke: none;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -201,6 +229,7 @@ button {
   height: 42px;
   display: grid;
   place-items: center;
+  font-size: 1.1rem;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
