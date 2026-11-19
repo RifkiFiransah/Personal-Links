@@ -18,7 +18,7 @@
       } catch {
         return;
       }
-    }
+    },
   };
 
   const mark = (selector, attribute, value) => {
@@ -38,7 +38,9 @@
 
   const effectiveTheme = () =>
     root.dataset.theme === "auto"
-      ? window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"
+      ? window.matchMedia("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark"
       : root.dataset.theme;
 
   const applyTheme = (theme, persist = true) => {
@@ -46,7 +48,10 @@
     if (persist) store.set("theme", theme);
     const light = effectiveTheme() === "light";
     themeIcon.className = light ? "fa-solid fa-sun" : "fa-regular fa-moon";
-    themeToggle.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+    themeToggle.setAttribute(
+      "aria-label",
+      light ? "Switch to dark mode" : "Switch to light mode",
+    );
     mark(".theme-option", "theme", theme);
   };
 
@@ -64,7 +69,8 @@
   const ping = () => {
     if (!soundOn) return;
     try {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      const AudioContextClass =
+        window.AudioContext || window.webkitAudioContext;
       if (!AudioContextClass) return;
       audioContext = audioContext || new AudioContextClass();
       if (audioContext.state === "suspended") audioContext.resume();
@@ -72,9 +78,15 @@
       const gain = audioContext.createGain();
       oscillator.type = "sine";
       oscillator.frequency.setValueAtTime(660, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 0.08);
+      oscillator.frequency.exponentialRampToValueAtTime(
+        880,
+        audioContext.currentTime + 0.08,
+      );
       gain.gain.setValueAtTime(0.035, audioContext.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.14);
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioContext.currentTime + 0.14,
+      );
       oscillator.connect(gain).connect(audioContext.destination);
       oscillator.start();
       oscillator.stop(audioContext.currentTime + 0.15);
@@ -97,14 +109,14 @@
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-      hour12: false
+      hour12: false,
     });
     const dateFormat = new Intl.DateTimeFormat("en-GB", {
       timeZone: "Asia/Jakarta",
       weekday: "long",
       day: "numeric",
       month: "long",
-      year: "numeric"
+      year: "numeric",
     });
     let previous = "";
 
@@ -115,8 +127,11 @@
         timeEl.textContent = time;
         if (!reduced && timeEl.animate) {
           timeEl.animate(
-            [{ opacity: 0.35, transform: "translateY(-3px)" }, { opacity: 1, transform: "none" }],
-            { duration: 220, easing: "ease-out" }
+            [
+              { opacity: 0.35, transform: "translateY(-3px)" },
+              { opacity: 1, transform: "none" },
+            ],
+            { duration: 220, easing: "ease-out" },
           );
         }
         previous = time;
@@ -131,7 +146,13 @@
   const initRole = () => {
     if (reduced) return;
     const roleEl = document.getElementById("role-text");
-    const roles = ["Freelance Web Developer", "Frontend Focused", "Building for the Web"];
+    const roles = [
+      "Full Stack Developer",
+      "Frontend & Backend Focused",
+      "Building for the systems of tomorrow",
+      "Creating seamless experiences",
+      "Crafting digital solutions",
+    ];
     let index = 0;
     setInterval(() => {
       roleEl.style.opacity = "0";
@@ -144,7 +165,8 @@
   };
 
   const initParticles = () => {
-    if (reduced || root.dataset.motion === "off" || root.dataset.bg === "off") return;
+    if (reduced || root.dataset.motion === "off" || root.dataset.bg === "off")
+      return;
     const container = document.getElementById("particles");
     container.replaceChildren();
     for (let i = 0; i < 18; i += 1) {
@@ -190,8 +212,12 @@
     });
 
     document.querySelectorAll("a, button").forEach((element) => {
-      element.addEventListener("mouseenter", () => ring.classList.add("hovering"));
-      element.addEventListener("mouseleave", () => ring.classList.remove("hovering"));
+      element.addEventListener("mouseenter", () =>
+        ring.classList.add("hovering"),
+      );
+      element.addEventListener("mouseleave", () =>
+        ring.classList.remove("hovering"),
+      );
     });
   };
 
@@ -223,7 +249,9 @@
         ripple.style.left = `${event.clientX - bounds.left - size / 2}px`;
         ripple.style.top = `${event.clientY - bounds.top - size / 2}px`;
         card.append(ripple);
-        ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
+        ripple.addEventListener("animationend", () => ripple.remove(), {
+          once: true,
+        });
       });
     });
   };
@@ -244,11 +272,14 @@
     settingsClose.addEventListener("click", () => setPanel(false));
     settingsOverlay.addEventListener("click", () => setPanel(false));
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && settingsPanel.classList.contains("open")) setPanel(false);
+      if (event.key === "Escape" && settingsPanel.classList.contains("open"))
+        setPanel(false);
     });
-    window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
-      if (root.dataset.theme === "auto") applyTheme("auto", false);
-    });
+    window
+      .matchMedia("(prefers-color-scheme: light)")
+      .addEventListener("change", () => {
+        if (root.dataset.theme === "auto") applyTheme("auto", false);
+      });
 
     document.querySelectorAll(".theme-option").forEach((button) => {
       button.addEventListener("click", () => {
