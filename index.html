@@ -1,115 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Link Tree Personal ~ Rifki Firansah</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!doctype html>
+<html lang="en" data-theme="dark" data-motion="on" data-bg="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Links, work, and ways to reach Rifki Firansah, freelance web developer." />
+    <title>Rifki Firansah - Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+      <span class="blob blob-c"></span>
+    </div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
 
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-  <div class="container">
-
-    <!-- First Navbar Section -->
-    <header id="navbar" class="navbar">
-      <div class="navbar-hero">
-        <h1>Welcome To My Links</h1>
-      </div>
-    </header>
-    <!-- Last Navbar Section -->
-
-    <!-- First Content Section -->
-    <main class="content" id="content">
-      <div class="content-profile">
-        <div class="profile-picture">
-          <img src="./assets/img/gue-min.jpg" alt="pict-profile">
+    <div class="page">
+      <header class="topbar">
+        <span class="brand">rifki<span class="brand-dot">.</span>links</span>
+        <div class="top-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light mode">
+            <i class="fa-regular fa-moon" id="theme-icon" aria-hidden="true"></i>
+          </button>
+          <button class="icon-btn" id="settings-open" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-controls="settings-panel" aria-expanded="false">
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+          </button>
         </div>
-        <br>
-        <div class="profile-deskripsi">
-          <h4>Hai , I'm Rifki Firansah </h4>
-          <div class="wrapper">
-            <div class="typing-demo">
-              Freelancer | Web Developer.
+      </header>
+
+      <main class="shell">
+        <section class="profile reveal" aria-labelledby="profile-name">
+          <div class="avatar">
+            <img src="./assets/img/gue-min.jpg" alt="Portrait of Rifki Firansah" width="140" height="140" fetchpriority="high" />
+          </div>
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>Available for Projects</p>
+          <h1 id="profile-name">Rifki Firansah</h1>
+          <p class="role"><span id="role-text">Freelance Web Developer</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="bio">I build websites that feel clear and considered, with attention to the small details that make them pleasant to use.</p>
+          <button class="contact-btn" id="contact-btn" type="button">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            Contact Me
+          </button>
+
+          <div class="clock" aria-label="Current time in Jakarta">
+            <div class="clock-time" id="clock-time">--:--:--</div>
+            <div class="clock-meta">
+              <span id="clock-date">Loading date</span>
+              <span class="tz"><span class="tz-dot" aria-hidden="true"></span>WIB, UTC+7</span>
             </div>
           </div>
-          <button onclick="popNotif()">Don't Click This</button>
-          <h5 class="clock"></h5>
-        </div>
-      </div>
+        </section>
 
-      <div class="content-deskripsi">
-        <div class="deskripsi-title">
-          <h2>Connect with me</h2>
-        </div>
-        <div class="deskripsi-links">
-          <ul>
-            <a href="https://instagram.com/505_mrifkif.nt" target="_blank">
-              <li data-aos="fade-right"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="300"
-              data-aos-duration="2000"
-              data-aos-easing="ease-in-sine">
-                <i class="fa-brands fa-instagram"></i> Instagram
-              </li>
-            </a>
-            <a href="https://www.linkedin.com/in/rifki-firansah-670109249/" target="_blank">
-              <li data-aos="fade-left"
-                  data-aos-anchor="#example-anchor"
-                  data-aos-offset="500"
-                  data-aos-duration="2000">
-                <i class="fa-brands fa-linkedin"></i> Linked In
-              </li>
-            </a>
-            <a href="https://twitter.com/RifkiFiransah" target="_blank">
-              <li data-aos="fade-right"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="300"
-              data-aos-duration="2000"
-              data-aos-easing="ease-in-sine">
-                <i class="fa-brands fa-square-twitter"></i> Twitter
-              </li>
-            </a>
-            <a href="https://github.com/RifkiFiransah/" target="_blank">
-              <li data-aos="fade-left"
-                  data-aos-anchor="#example-anchor"
-                  data-aos-offset="500"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-duration="2000">
-                <i class="fa-brands fa-square-github"></i> Github
-              </li>
-            </a>
-            <a href="https://firansahrifki.netlify.app/" target="_blank">
-              <li data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-duration="2000"
-              data-aos-anchor="#example-anchor"
-              data-aos-easing="ease-in-sine">
-                <i class="fa-solid fa-house"></i> My Personal Page
-              </li>
-            </a>
+        <section class="links" aria-labelledby="links-title">
+          <div class="section-head reveal" style="--d: .1s">
+            <h2 id="links-title">Connect with me</h2>
+            <span class="section-line" aria-hidden="true"></span>
+          </div>
+
+          <ul class="link-list">
+            <li class="reveal" style="--d: .16s">
+              <a class="link-card" href="https://instagram.com/505_mrifkif.nt" target="_blank" rel="noopener noreferrer" data-tone="ig">
+                <span class="link-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+                <span class="link-copy">
+                  <span class="link-name">Instagram</span>
+                  <span class="link-desc">Daily moments and updates</span>
+                </span>
+                <span class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: .22s">
+              <a class="link-card" href="https://www.linkedin.com/in/rifki-firansah-670109249/" target="_blank" rel="noopener noreferrer" data-tone="in">
+                <span class="link-icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></span>
+                <span class="link-copy">
+                  <span class="link-name">LinkedIn</span>
+                  <span class="link-desc">Work history and connections</span>
+                </span>
+                <span class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: .28s">
+              <a class="link-card" href="https://github.com/RifkiFiransah/" target="_blank" rel="noopener noreferrer" data-tone="gh">
+                <span class="link-icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+                <span class="link-copy">
+                  <span class="link-name">GitHub</span>
+                  <span class="link-desc">Repositories and experiments</span>
+                </span>
+                <span class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </li>
+            <li class="reveal" style="--d: .34s">
+              <a class="link-card" href="https://rifkifiransah.vercel.app/" target="_blank" rel="noopener noreferrer" data-tone="web">
+                <span class="link-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+                <span class="link-copy">
+                  <span class="link-name">Portfolio</span>
+                  <span class="link-desc">Selected projects and writing</span>
+                </span>
+                <span class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              </a>
+            </li>
           </ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>&copy; <span id="year">2026</span> Rifki Firansah. Built with care.</p>
+      </footer>
+    </div>
+
+    <div class="settings-overlay" id="settings-overlay"></div>
+    <aside class="settings-panel" id="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-hidden="true">
+      <div class="settings-head">
+        <h2 id="settings-title">Preferences</h2>
+        <button class="icon-btn" id="settings-close" type="button" aria-label="Close settings">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="settings-group">
+        <p class="settings-label" id="theme-label">Theme</p>
+        <div class="seg" role="group" aria-labelledby="theme-label">
+          <button class="seg-btn theme-option" type="button" data-theme="auto" aria-pressed="false">Auto</button>
+          <button class="seg-btn theme-option" type="button" data-theme="light" aria-pressed="false">Light</button>
+          <button class="seg-btn theme-option" type="button" data-theme="dark" aria-pressed="false">Dark</button>
         </div>
       </div>
-    </main>
-    <!-- Last Content Section -->
 
-    <!-- First Footer Section -->
-    <footer id="footer" class="footer">
-      <div class="footer-title">
-        <p>&copy; Copyright 2023 Build with <i class="fa-solid fa-heart"></i> By Me > Rifki Firansah <</p>
+      <div class="settings-group">
+        <p class="settings-label" id="motion-label">Motion</p>
+        <div class="seg" role="group" aria-labelledby="motion-label">
+          <button class="seg-btn motion-option" type="button" data-motion="on" aria-pressed="false">On</button>
+          <button class="seg-btn motion-option" type="button" data-motion="off" aria-pressed="false">Off</button>
+        </div>
       </div>
-    </footer>
-    <!-- Last Footer Section -->
 
-  </div>
+      <div class="settings-group">
+        <p class="settings-label" id="bg-label">Background</p>
+        <div class="seg" role="group" aria-labelledby="bg-label">
+          <button class="seg-btn bg-option" type="button" data-bg="on" aria-pressed="false">On</button>
+          <button class="seg-btn bg-option" type="button" data-bg="off" aria-pressed="false">Off</button>
+        </div>
+      </div>
 
-  <script src="./assets/js/script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init()
-  </script>
-</body>
+      <div class="settings-group">
+        <p class="settings-label" id="sound-label">Sound feedback</p>
+        <div class="seg" role="group" aria-labelledby="sound-label">
+          <button class="seg-btn sound-option" type="button" data-sound="on" aria-pressed="false">On</button>
+          <button class="seg-btn sound-option" type="button" data-sound="off" aria-pressed="false">Off</button>
+        </div>
+      </div>
+
+      <p class="settings-note">Changes are saved on this device.</p>
+    </aside>
+
+    <script src="./assets/js/script.js" defer></script>
+  </body>
 </html>
